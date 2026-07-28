@@ -1,0 +1,41 @@
+# Backstage configuration
+
+replicaCount: 1
+
+ingress:
+  enabled: true
+  className: nginx
+
+  host: backstage.local
+
+  tls:
+    enabled: false
+
+backstage:
+  appConfig:
+
+    app:
+      title: Platform Engineering Portal
+      baseUrl: http://backstage.local
+
+    backend:
+      baseUrl: http://backstage.local
+
+      database:
+        client: pg
+
+        connection:
+          host: postgres-postgresql.postgres.svc.cluster.local
+          port: 5432
+          user: backstage
+          password: backstage123
+          database: backstage
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 512Mi
+
+  limits:
+    cpu: 1000m
+    memory: 1Gi
