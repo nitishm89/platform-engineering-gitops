@@ -1,0 +1,13 @@
+auth:
+  postgresPassword: postgres123
+  username: backstage
+  password: backstage123
+  database: backstage
+
+primary:
+  persistence:
+    enabled: true
+    size: 5Gi
+
+  service:
+    type: ClusterIP
